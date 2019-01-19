@@ -66,36 +66,49 @@
     var m = document.querySelector("main")
     var s = m.querySelectorAll(".open")
     var a = m.querySelectorAll('.answer')
-    // var a = document.querySelectorAll('.answer')
-    // m.forEach.call(addEventListener('click', clickOn))
+
     s.forEach(q=>{q.addEventListener('click',clickOn)})
     a.forEach(ap=>{
+      //if we want to add something to each answer
       // ap.className = "answerClosed"
       // ap.style.transition = "height: 2s"
     })
-    // s.addEventListener('click', clickOn)
-    // var aheight = a.scrollHeight
-    // console.log(aheight)
-    // a.style.height = "0px"
+
+
     function clickOn(e) {
+      //get the answer paragraph that is the sibling of the clicked headline
+      //nes == nextElementSibling
+      const nes = e.currentTarget.nextElementSibling
+
+      //close any currently open answer paragraphs
+      //ignore the currently open answer if there is one
       a.forEach(ap=>{
-        if (ap.classList.contains("answerOpen")) {
+        if (ap.classList.contains("answerOpen")&&ap!==nes) {
+          // ap.classList.remove("answerOpen")
           ap.classList.toggle("answerOpen")
           ap.style.maxHeight = null
         }
       })
 
-      console.log(e.currentTarget.nextElementSibling)
-      const nes = e.currentTarget.nextElementSibling
-
-      nes.classList.toggle("answerOpen")
-      console.log(nes.classList.contains("answerOpen"))
+      //check if the answer paragraph is currently open
+      //if so, toggle the class and remove the height
+      //if not, toggle the class and add the height
       if (nes.classList.contains("answerOpen")) {
-        nes.style.maxHeight = nes.scrollHeight + "px"
-      } else {
+        // nes.classList.remove("answerOpen")
+        // nes.classList.toggle("answerOpen")
         nes.style.maxHeight = null
+      } else {
+        // nes.classList.add("answerOpen")
+        // nes.classList.toggle("answerOpen")
+        nes.style.maxHeight = nes.scrollHeight + "px"
       }
+      //switch the class of the answer paragraph
+      nes.classList.toggle("answerOpen")
+
     }
+
+
+
   </script>
 </body>
 
