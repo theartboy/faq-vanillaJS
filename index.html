@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>FAQ</title>
+  <style type="text/css">
+    section {
+      width: 600px;
+    }
+
+    .answer {
+      background-color: rgb(31, 22, 125);
+      text: #fff;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s linear;
+      opacity: 0;
+
+    }
+
+    .answerOpen {
+      background-color: rgb(244, 83, 232);
+      /* height: 200px; */
+      text: #000;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>FAQ</h1>
+  <main>
+    <section>
+      <h2 class="open">First question.</h2>
+      <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <section>
+      <h2 class="open">Second question.</h2>
+      <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <section>
+      <h2 class="open">Third question.</h2>
+      <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <section>
+      <h2 class="open">Fourth question.</h2>
+      <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <section>
+      <h2 class="open">Fifth question.</h2>
+      <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+  </main>
+  <script type="text/javascript">
+    //your code goes here. good luck.
+    var m = document.querySelector("main")
+    var s = m.querySelectorAll(".open")
+    var a = m.querySelectorAll('.answer')
+    // var a = document.querySelectorAll('.answer')
+    // m.forEach.call(addEventListener('click', clickOn))
+    s.forEach(q=>{q.addEventListener('click',clickOn)})
+    a.forEach(ap=>{
+      // ap.className = "answerClosed"
+      // ap.style.transition = "height: 2s"
+    })
+    // s.addEventListener('click', clickOn)
+    // var aheight = a.scrollHeight
+    // console.log(aheight)
+    // a.style.height = "0px"
+    function clickOn(e) {
+      a.forEach(ap=>{
+        if (ap.classList.contains("answerOpen")) {
+          ap.classList.toggle("answerOpen")
+          ap.style.maxHeight = null
+        }
+      })
+
+      console.log(e.currentTarget.nextElementSibling)
+      const nes = e.currentTarget.nextElementSibling
+
+      nes.classList.toggle("answerOpen")
+      console.log(nes.classList.contains("answerOpen"))
+      if (nes.classList.contains("answerOpen")) {
+        nes.style.maxHeight = nes.scrollHeight + "px"
+      } else {
+        nes.style.maxHeight = null
+      }
+    }
+  </script>
+</body>
+
+</html>
